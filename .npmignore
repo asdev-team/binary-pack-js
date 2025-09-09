@@ -1,0 +1,13 @@
+src/
+test/
+benchmarks/
+examples/
+rollup.config.js
+*.md
+!.npmignore
+!package.json
+!LICENSE
+!README.md
+!dist/
+.idea/
+node_modules/

@@ -1,0 +1,67 @@
+{
+  "name": "binary-pack-js",
+  "version": "1.0.0",
+  "description": "JavaScript library for binary data serialization with multiple encryption methods",
+  "type": "module",
+  "types": "types/index.d.ts",
+  "typings": "types/index.d.ts",
+  "main": "dist/binary-pack.cjs.js",
+  "module": "dist/binary-pack.esm.js",
+  "browser": "dist/binary-pack.umd.js",
+  "unpkg": "dist/binary-pack.umd.min.js",
+  "jsdelivr": "dist/binary-pack.umd.min.js",
+  "exports": {
+    ".": {
+      "import": "./dist/binary-pack.esm.js",
+      "require": "./dist/binary-pack.cjs.js",
+      "browser": "./dist/binary-pack.umd.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "benchmark": "node benchmarks/benchmark.js",
+    "prepublishOnly": "npm run build && npm test",
+    "publish": "npm publish --include-types"
+  },
+  "keywords": [
+    "binary",
+    "serialization",
+    "encryption",
+    "data-pack",
+    "arraybuffer",
+    "base64",
+    "crypto"
+  ],
+  "author": "TM Project <tm-project@asdev.ru>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asdev-team/binary-pack-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asdev-team/binary-pack-js/issues"
+  },
+  "homepage": "https://github.com/asdev-team/binary-pack-js#readme",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.50.1"
+  },
+  "dependencies": {
+    "@rollup/plugin-alias": "^5.1.1",
+    "buffer": "^6.0.3",
+    "util": "^0.12.5"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "binary-pack-js-types",
+  "version": "1.0.0",
+  "description": "TypeScript definitions for binary-pack-js",
+  "types": "index.d.ts",
+  "author": "TM Project <tm-project@asdev.ru>",
+  "license": "MIT"
+}

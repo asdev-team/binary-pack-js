@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BinaryPack Browser Example</title>
+    <script src="../dist/binary-pack.umd.js"></script>
+</head>
+<body>
+<h1>BinaryPack Browser Example</h1>
+<script>
+    // Example usage
+    const {BinaryPack, AvailableMethodsName} = BinaryPackPackage
+    const packer = new BinaryPack('my-secret', AvailableMethodsName.XOR);
+    const data = { message: 'Hello Browser!', timestamp: Date.now() };
+
+    // Pack data
+    const binary = packer.pack(data);
+    console.log('Packed data:', binary);
+
+    // Convert to Base64 for display
+    const base64 = BinaryPack.bufferToBase64(binary);
+    document.write('<p>Base64: ' + base64 + '</p>');
+
+    // Unpack data
+    const unpacked = packer.unpack(binary);
+    document.write('<p>Unpacked: ' + JSON.stringify(unpacked) + '</p>');
+</script>
+</body>
+</html>
