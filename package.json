@@ -1,6 +1,6 @@
 {
   "name": "binary-pack-js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript library for binary data serialization with multiple encryption methods",
   "type": "module",
   "types": "types/index.d.ts",
