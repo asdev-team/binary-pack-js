@@ -28,7 +28,10 @@
     "test": "node test/test.js",
     "benchmark": "node benchmarks/benchmark.js",
     "prepublishOnly": "npm run build && npm test",
-    "publish": "npm publish --include-types"
+    "publish": "npm publish --include-types",
+    "publish:patch" : "npm version patch && npm run publish",
+    "publish:minor" : "npm version minor && npm run publish",
+    "publish:major" : "npm version major && npm run publish"
   },
   "keywords": [
     "binary",
