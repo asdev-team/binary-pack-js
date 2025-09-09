@@ -1,6 +1,6 @@
 {
   "name": "binary-pack-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "JavaScript library for binary data serialization with multiple encryption methods",
   "type": "module",
   "types": "types/index.d.ts",
@@ -29,9 +29,9 @@
     "benchmark": "node benchmarks/benchmark.js",
     "prepublishOnly": "npm run build && npm test",
     "publish": "npm publish --include-types",
-    "publish:patch" : "npm version patch && npm run publish",
-    "publish:minor" : "npm version minor && npm run publish",
-    "publish:major" : "npm version major && npm run publish"
+    "publish:patch": "npm version patch && npm run publish",
+    "publish:minor": "npm version minor && npm run publish",
+    "publish:major": "npm version major && npm run publish"
   },
   "keywords": [
     "binary",
