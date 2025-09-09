@@ -225,7 +225,4 @@ npm run benchmark
 - Баг-репорты: [GitHub Issues](https://github.com/asdev-team/binary-pack-js/issues)
 - Вопросы: [Discussions](https://github.com/asdev-team/binary-pack-js/discussions)
 
-Документация: Wiki
-
 BinaryPack - универсальное решение для бинарной сериализации данных с гибкими настройками безопасности и отличной производительностью.
----
