@@ -1,4 +1,20 @@
-# BinaryPack
+# BinaryPack 
+![GitHub package.json version](https://img.shields.io/github/package-json/v/asdev-team/binary-pack-js?logo=github)
+![NPM Version](https://img.shields.io/npm/v/binary-pack-js?logo=npm)
+![GitHub last commit](https://img.shields.io/github/last-commit/asdev-team/binary-pack-js?logo=datefns) 
+![GitHub repo size](https://img.shields.io/github/repo-size/asdev-team/binary-pack-js)
+![npm bundle size](https://img.shields.io/bundlephobia/min/binary-pack-js)
+![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/binary-pack-js)
+![GitHub Issues](https://img.shields.io/github/issues/asdev-team/binary-pack-js?logo=progress)
+![GitHub Pull Requests](https://img.shields.io/github/issues-pr/asdev-team/binary-pack-js?logo=progress)
+![GitHub License](https://img.shields.io/github/license/asdev-team/binary-pack-js)
+
+
+
+
+
+
+
 
 JavaScript библиотека для бинарной сериализации данных с поддержкой шифрования. Поддерживает упаковку любых JSON-совместимых данных в бинарный формат с возможностью использования различных алгоритмов шифрования.
 
@@ -26,37 +42,81 @@ npm install binary-pack-js
 
 ### ES модули (современные приложения)
 ```javascript
-import { BinaryPack, AvailableMethodsName } from 'binary-pack-js';
+import {BinaryPack, AvailableMethodsName} from 'binary-pack-js';
 
-const packer = new BinaryPack('my-secret-key', AvailableMethodsName.AES);
-const data = { message: 'Hello World', number: 42 };
+const packer = new BinaryPack('my-secret', AvailableMethodsName.XOR);
+const data = {
+    server: 'Node.js',
+    users: ['user1', 'user2'],
+    config: {port: 3000, https: true}
+};
 
-// Упаковка данных
-const binaryData = packer.pack(data);
-const base64String = BinaryPack.bufferToBase64(binaryData);
+console.log('Original data:', data);
 
-// Распаковка данных
-const receivedBuffer = BinaryPack.base64ToBuffer(base64String);
-const unpackedData = packer.unpack(receivedBuffer);
+// Pack and unpack
+const binary = packer.pack(data);
+console.log('Binary length:', binary.byteLength, 'bytes');
+
+const unpacked = packer.unpack(binary);
+console.log('Unpacked data:', unpacked);
+
+// Base64 example
+const base64 = BinaryPack.bufferToBase64(binary);
+console.log('Base64 length:', base64.length, 'chars');
+
+const fromBase64 = BinaryPack.base64ToBuffer(base64);
+const fromBase64Unpacked = packer.unpack(fromBase64);
+console.log('From Base64:', fromBase64Unpacked);
 ```
 
 ### CommonJS (Node.js)
 ```javascript
-const { BinaryPack, AvailableMethodsName } = require('binary-pack-js');
+const {BinaryPack, AvailableMethodsName} = require('binary-pack-js');
+const packer = new BinaryPack('my-secret', AvailableMethodsName.XOR);
+const data = {
+    server: 'Node.js',
+    users: ['user1', 'user2'],
+    config: {port: 3000, https: true}
+};
 
-const packer = new BinaryPack('my-secret-key', AvailableMethodsName.AES);
-// ... аналогичное использование
+console.log('Original data:', data);
+
+// Pack and unpack
+const binary = packer.pack(data);
+console.log('Binary length:', binary.byteLength, 'bytes');
+
+const unpacked = packer.unpack(binary);
+console.log('Unpacked data:', unpacked);
+
+// Base64 example
+const base64 = BinaryPack.bufferToBase64(binary);
+console.log('Base64 length:', base64.length, 'chars');
+
+const fromBase64 = BinaryPack.base64ToBuffer(base64);
+const fromBase64Unpacked = packer.unpack(fromBase64);
+console.log('From Base64:', fromBase64Unpacked);
 ```
 
 ### Браузер (глобальная переменная)
 ```html
 <script src="https://cdn.jsdelivr.net/npm/binary-pack-js@latest/dist/binary-pack.umd.min.js"></script>
 <script>
-    const packer = new BinaryPack('my-secret-key', window.BinaryPack.AvailableMethodsName.AES);
-    const data = { message: 'Hello World' };
+    // Example usage
+    const {BinaryPack, AvailableMethodsName} = window.BinaryPackPackage
+    const packer = new BinaryPack('my-secret', AvailableMethodsName.XOR);
+    const data = { message: 'Hello Browser!', timestamp: Date.now() };
 
+    // Pack data
     const binary = packer.pack(data);
-    const base64 = window.BinaryPack.bufferToBase64(binary);
+    console.log('Packed data:', binary);
+
+    // Convert to Base64 for display
+    const base64 = BinaryPack.bufferToBase64(binary);
+    document.write('<p>Base64: ' + base64 + '</p>');
+
+    // Unpack data
+    const unpacked = packer.unpack(binary);
+    document.write('<p>Unpacked: ' + JSON.stringify(unpacked) + '</p>');
 </script>
 ```
 
