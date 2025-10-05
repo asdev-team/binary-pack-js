@@ -1,11 +1,11 @@
 {
   "name": "binary-pack-js",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "JavaScript library for binary data serialization with multiple encryption methods",
   "type": "module",
   "types": "types/index.d.ts",
   "typings": "types/index.d.ts",
-  "main": "dist/binary-pack.cjs.js",
+  "main": "dist/binary-pack.cjs",
   "module": "dist/binary-pack.esm.js",
   "browser": "dist/binary-pack.umd.js",
   "unpkg": "dist/binary-pack.umd.min.js",
@@ -13,7 +13,7 @@
   "exports": {
     ".": {
       "import": "./dist/binary-pack.esm.js",
-      "require": "./dist/binary-pack.cjs.js",
+      "require": "./dist/binary-pack.cjs",
       "browser": "./dist/binary-pack.umd.js"
     },
     "./package.json": "./package.json"
@@ -28,10 +28,10 @@
     "test": "node test/test.js",
     "benchmark": "node benchmarks/benchmark.js",
     "!prepublishOnly!": "npm run build && npm test",
-    "publish": "npm publish --include-types",
-    "publish:patch": "npm version patch && npm run publish",
-    "publish:minor": "npm version minor && npm run publish",
-    "publish:major": "npm version major && npm run publish"
+    "publish:start": "npm publish --include-types",
+    "publish:patch": "npm version patch && npm run publish:start",
+    "publish:minor": "npm version minor && npm run publish:start",
+    "publish:major": "npm version major && npm run publish:start"
   },
   "keywords": [
     "binary",
@@ -40,7 +40,11 @@
     "data-pack",
     "arraybuffer",
     "base64",
-    "crypto"
+    "crypto",
+    "xor",
+    "aes",
+    "caesar",
+    "json"
   ],
   "author": "TM Project <tm-project@asdev.ru>",
   "license": "MIT",

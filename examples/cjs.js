@@ -1,5 +1,4 @@
-const {BinaryPack, AvailableMethodsName} = require('../dist/binary-pack.cjs.js');
-
+const {BinaryPack, AvailableMethodsName} = require('binary-pack-js');
 const packer = new BinaryPack('my-secret', AvailableMethodsName.XOR);
 const data = {
     server: 'Node.js',

@@ -1,14 +1,13 @@
 import alias from '@rollup/plugin-alias';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import terser from '@rollup/plugin-terser';
 import json from '@rollup/plugin-json';
 import fs from 'fs';
+const pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 // Имя пакета для UMD сборки
 const packageName = 'BinaryPackPackage';
-// Имя файла для экспорта
-const fileName = 'binary-pack';
 
 // Общие настройки для минификации
 const terserOptions = {
@@ -35,8 +34,8 @@ const baseConfig = {
     plugins: [
         alias({
             entries: [
-                { find: 'buffer', replacement: 'buffer/' },
-                { find: 'util', replacement: 'util/util.js' }
+                {find: 'buffer', replacement: 'buffer/'},
+                {find: 'util', replacement: 'util/util.js'}
             ]
         }),
         nodeResolve(), // Разрешение модулей из node_modules
@@ -59,7 +58,7 @@ const configs = [
     {
         ...baseConfig,
         output: {
-            file: `dist/${fileName}.esm.js`,
+            file: pkg.module,
             format: 'esm',
             sourcemap: true,
         },
@@ -68,7 +67,7 @@ const configs = [
     {
         ...baseConfig,
         output: {
-            file: `dist/${fileName}.esm.min.js`,
+            file: pkg.module.replace(/\.js$/, '.min.js'),
             format: 'esm',
             sourcemap: true,
             plugins: [terser(terserOptions)],
@@ -78,7 +77,7 @@ const configs = [
     {
         ...baseConfig,
         output: {
-            file: `dist/${fileName}.cjs.js`,
+            file: pkg.main,
             format: 'cjs',
             exports: 'named',
             name: packageName,
@@ -89,7 +88,7 @@ const configs = [
     {
         ...baseConfig,
         output: {
-            file: `dist/${fileName}.cjs.min.js`,
+            file: pkg.main.replace(/\.cjs$/, '.min.cjs'),
             format: 'cjs',
             exports: 'named',
             sourcemap: true,
@@ -101,7 +100,7 @@ const configs = [
     {
         ...baseConfig,
         output: {
-            file: `dist/${fileName}.umd.js`,
+            file: pkg.browser,
             format: 'umd',
             name: packageName,
             sourcemap: true,
@@ -111,7 +110,7 @@ const configs = [
     {
         ...baseConfig,
         output: {
-            file: `dist/${fileName}.umd.min.js`,
+            file: pkg.browser.replace(/\.js$/, '.min.js'),
             format: 'umd',
             name: packageName,
             sourcemap: true,

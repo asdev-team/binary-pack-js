@@ -1,4 +1,4 @@
-import {BinaryPack, AvailableMethodsName} from '../dist/binary-pack.esm.js';
+import {BinaryPack, AvailableMethodsName} from 'binary-pack-js';
 
 const packer = new BinaryPack('my-secret', AvailableMethodsName.XOR);
 const data = {
