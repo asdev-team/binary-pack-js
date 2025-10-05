@@ -40,7 +40,11 @@
     "data-pack",
     "arraybuffer",
     "base64",
-    "crypto"
+    "crypto",
+    "xor",
+    "aes",
+    "caesar",
+    "json"
   ],
   "author": "TM Project <tm-project@asdev.ru>",
   "license": "MIT",
