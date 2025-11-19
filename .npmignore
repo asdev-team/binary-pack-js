@@ -12,3 +12,5 @@ rollup.config.js
 .idea/
 node_modules/
 .claude/
+promo/
+docs/
