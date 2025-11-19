@@ -1,7 +1,7 @@
-# BinaryPack 
+# BinaryPack
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/asdev-team/binary-pack-js?logo=github)
 ![NPM Version](https://img.shields.io/npm/v/binary-pack-js?logo=npm)
-![GitHub last commit](https://img.shields.io/github/last-commit/asdev-team/binary-pack-js?logo=datefns) 
+![GitHub last commit](https://img.shields.io/github/last-commit/asdev-team/binary-pack-js?logo=datefns)
 ![GitHub repo size](https://img.shields.io/github/repo-size/asdev-team/binary-pack-js)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/binary-pack-js)
 ![NPM Unpacked Size](https://img.shields.io/npm/unpacked-size/binary-pack-js)
@@ -9,12 +9,9 @@
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/asdev-team/binary-pack-js?logo=progress)
 ![GitHub License](https://img.shields.io/github/license/asdev-team/binary-pack-js)
 
+**Русский** | [English](./README_en.md)
 
-
-
-
-
-
+---
 
 JavaScript библиотека для бинарной сериализации данных с поддержкой шифрования. Поддерживает упаковку любых JSON-совместимых данных в бинарный формат с возможностью использования различных алгоритмов шифрования.
 
@@ -156,7 +153,7 @@ try {
     // Возможные ошибки:
     // - "Неподдерживаемый метод шифрования"
     // - "Неверная версия формата данных"
-    // - "Несоответствие методов шифрования" 
+    // - "Несоответствие методов шифрования"
     // - "Некорректная длина данных"
     // - "Ошибка распаковки данных"
 }

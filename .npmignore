@@ -11,3 +11,4 @@ rollup.config.js
 !dist/
 .idea/
 node_modules/
+.claude/
