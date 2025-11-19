@@ -55,7 +55,7 @@
   "bugs": {
     "url": "https://github.com/asdev-team/binary-pack-js/issues"
   },
-  "homepage": "https://github.com/asdev-team/binary-pack-js#readme",
+  "homepage": "https://binarypackjs.ru/",
   "engines": {
     "node": ">=8.0.0"
   },
